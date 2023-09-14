@@ -2,21 +2,15 @@
 
 const input = document.querySelector("#validation-input");
 
+//скорочено if
 const checkInput = () => {
   if (input.value.trim().length !== +input.dataset.length) {
-    if (input.classList.contains("valid")) {
-      input.classList.replace("valid", "invalid");
-      return;
-    }
     input.classList.add("invalid");
+    input.classList.remove("valid");
     return;
-  } else {
-    if (input.classList.contains("invalid")) {
-      input.classList.replace("invalid", "valid");
-      return;
-    }
-    input.classList.add("valid");
   }
+  input.classList.add("valid");
+  input.classList.remove("invalid");
 };
 
 input.addEventListener("blur", checkInput);

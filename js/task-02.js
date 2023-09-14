@@ -9,14 +9,14 @@ const ingredients = [
   "Condiments",
 ];
 
-const fragment = document.createDocumentFragment();
-ingredients.forEach((elem) => {
-  const li = document.createElement("li");
-  li.textContent = elem;
-  li.classList.add("item");
-
-  fragment.appendChild(li);
+//замінено на map
+const liElements = ingredients.map((elem) => {
+  const liItem = document.createElement("li");
+  liItem.textContent = elem;
+  liItem.classList.add("item");
+  console.log(liItem);
+  return liItem;
 });
 
 const ingredientsList = document.querySelector("#ingredients");
-ingredientsList.appendChild(fragment);
+ingredientsList.append(...liElements);

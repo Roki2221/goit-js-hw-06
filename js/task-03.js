@@ -17,11 +17,10 @@ const images = [
 
 const imagesList = document.querySelector(".gallery");
 const markup = images
-  .map(({ url, alt }) => `<li><img src=${url} alt=${alt} width = 200></li>`)
+  .map(
+    ({ url, alt }) =>
+      `<li class="gallery-item"><img src=${url} alt=${alt} width = 200></li>`
+  )
   .join("");
 
 imagesList.insertAdjacentHTML("beforeend", markup);
-
-imagesList.style.display = "flex";
-imagesList.style.alignItems = "center";
-imagesList.style.justifyContent = "space-around";
